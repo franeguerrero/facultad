@@ -15,6 +15,7 @@ Proceso:
 */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
 // Estructura para representar un empleado
@@ -50,7 +51,7 @@ float calcularSueldoNeto(const Empleado &empleado, float bonoFijoNivel0)
         bono = empleado.sueldoBase * 0.2104;
         break;
     default:
-        std::cerr << "Nivel no válido\n";
+        cerr << "Nivel no válido";
         return -1; // Código de error
     }
 
@@ -60,11 +61,19 @@ float calcularSueldoNeto(const Empleado &empleado, float bonoFijoNivel0)
 
 int main()
 {
-    Empleado empleado1 = {0, 300098.0};
-    float bonoFijoNivel0 = 11328.23;
+    Empleado empleado1;
+    float bonoFijoNivel0 = 2000;
 
+    do
+    {
+        cout << "Ingrese el nivel del empleado (0, 1, 2 o 3): ";
+        cin >> empleado1.nivel;
+    } while (empleado1.nivel < 0 || empleado1.nivel > 3);
+
+    cout << "Ingrese el sueldo base del empleado: ";
+    cin >> empleado1.sueldoBase;
     float sueldoNeto = calcularSueldoNeto(empleado1, bonoFijoNivel0);
-    cout << "El sueldo neto del empleado es: " << sueldoNeto << endl;
+    cout << "El sueldo neto del empleado es: " << fixed << setprecision(2) << sueldoNeto << endl;
 
     return 0;
 }
