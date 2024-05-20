@@ -8,10 +8,10 @@ int main(void){
     cout << "Ingrese un numero entero positivo: " <<endl;
     cin >> N;
 
-    for(int k=2; k<N; k++){
+    for(int k=2; k<N; k++){ //se mide a partir de 2 ya que 1 ya es primo, revisa todos los menores a la variable asignada
 
         int creciente = 2;
-        bool esPrimo = true;
+        bool esPrimo = true; 
 
         while(esPrimo && creciente < k){
 
