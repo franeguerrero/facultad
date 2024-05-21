@@ -52,7 +52,7 @@ float calcularSueldoNeto(const Empleado &empleado, float bonoFijoNivel0)
         break;
     default:
         cerr << "Nivel no válido";
-        return -1; // Código de error
+        return -1;
     }
 
     float sueldoNeto = empleado.sueldoBase - descuentoLey - descuentoSeguro + bono;
